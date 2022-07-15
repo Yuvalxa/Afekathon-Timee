@@ -1,0 +1,74 @@
+create schema calander;
+use calander;
+
+create table users
+(email varchar(30),
+password varchar(30),
+localstat int,
+primary key(email));
+
+
+create table events
+(eventId int auto_increment,
+eventName varchar(30),
+startTime datetime,
+endTime datetime,
+eventDescription varchar(120),
+userEmail varchar(30),
+eventPriority int,
+isDone int,
+primary key(eventId),
+foreign key(userEmail) references users(email));
+
+create table statistics
+(parameterId int auto_increment,
+parameterName varchar(30),
+parameterType int,
+parameterEvg int,
+numOfStats int,
+primary key(parameterId));
+
+
+
+
+INSERT INTO users 
+VALUES 
+("yuvalsmastey@gmail.com","123456",5);
+
+
+INSERT INTO events (eventName, startTime, endTime, eventDescription, userEmail, eventPriority,isDone)
+VALUES 
+("homework Calculus","2022-05-19 20:14:07","2022-05-19 22:14:00", "Description", "yuvalsmastey@gmail.com", 1,0),
+("homework Linear mathematics","2022-05-19 16:14:21","2022-05-19 17:14:07", "Description", "yuvalsmastey@gmail.com", 2,0),
+("homework Calculus","2022-05-19 18:14:07","2022-05-19 19:14:07", "Description", "yuvalsmastey@gmail.com", 1,0),
+("homework Calculus","2022-05-27 10:14:07","2022-05-19 15:14:00", "Description", "yuvalsmastey@gmail.com", 2,0),
+("homework Discrete mathematics","2022-05-25 03:14:22","2022-05-19 03:25:17", "Description", "yuvalsmastey@gmail.com", 1,0),
+("homework Calculus","2022-05-23 03:14:57","2022-05-19 19:14:07", "Description", "yuvalsmastey@gmail.com", 2,0),
+("homework probability","2022-05-19 08:14:07","2022-05-19 10:32:07", "Description", "yuvalsmastey@gmail.com", 1,0),
+("homework Computer science","2022-05-15 20:14:07","2022-05-15 22:14:07", "Description", "yuvalsmastey@gmail.com", 2,0),
+("homework Computer science","2022-05-17 12:23:33","2022-05-17 14:32:07", "Description", "yuvalsmastey@gmail.com", 1,0),
+("homework probability","2022-05-20 10:14:07","2022-05-20 12:21:07", "Description", "yuvalsmastey@gmail.com", 2,0);
+
+
+
+INSERT INTO statistics (parameterName, parameterType, parameterEvg, numOfStats) 
+VALUES 
+("Calculus", 1, 4, 20),
+("Calculus", 2, 20, 21),
+("Linear mathematics", 1, 5, 15),
+("Linear mathematics", 2, 18, 19),
+("Discrete mathematics", 1, 5, 15),
+("Discrete mathematics", 2, 18, 19),
+("Computer science Introduction", 1, 5, 24),
+("Computer science Introduction", 2, 20, 24),
+("probability", 1, 5, 15),
+("probability", 2, 18, 19),
+("Assembly language", 1, 5, 15),
+("Assembly language", 2, 18, 19),
+("Physics mechanics", 1, 5, 15),
+("Physics mechanics", 2, 18, 19),
+("Calculus 2", 1, 5, 15),
+("Calculus 2e", 2, 18, 19);
+
+
+
